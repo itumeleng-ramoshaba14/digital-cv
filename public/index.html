@@ -1,4 +1,3 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -15,35 +14,38 @@
 
       const theme = saved || (prefersDark ? "dark" : "light");
 
-      if (theme === "dark") document.documentElement.classList.add("dark");
-      else document.documentElement.classList.remove("dark");
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     })();
   </script>
 
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            50: "#ecfdf5",
-            100: "#d1fae5",
-            200: "#a7f3d0",
-            300: "#6ee7b7",
-            400: "#34d399",
-            500: "#10b981",
-            600: "#059669",
-            700: "#047857",
-            800: "#065f46",
-            900: "#064e3b"
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: "#ecfdf5",
+              100: "#d1fae5",
+              200: "#a7f3d0",
+              300: "#6ee7b7",
+              400: "#34d399",
+              500: "#10b981",
+              600: "#059669",
+              700: "#047857",
+              800: "#065f46",
+              900: "#064e3b"
+            }
           }
         }
       }
-    }
-  };
-</script>
-  <script src="https://cdn.tailwindcss.com"></script>
+    };
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,21 +54,71 @@
   <style>
     body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    html.dark body {
+      background-color: #09090b !important;
+      color: #f4f4f5 !important;
+    }
+
+    html.dark nav {
+      background-color: rgba(9, 9, 11, 0.85) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    html.dark .card {
+      background-color: rgba(24, 24, 27, 0.8) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      color: #f4f4f5 !important;
+    }
+
+    html.dark .muted {
+      color: #d4d4d8 !important;
+    }
+
+    html.dark .muted-2 {
+      color: #a1a1aa !important;
+    }
+
+    html.dark .chip {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      color: #f4f4f5 !important;
+    }
+
+    html.dark .link-card {
+      background-color: rgba(24, 24, 27, 0.8) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    html.dark .link-card:hover {
+      background-color: rgba(39, 39, 42, 0.9) !important;
+    }
+
+    html.dark .btn-light {
+      background-color: rgba(255, 255, 255, 0.08) !important;
+      color: #f4f4f5 !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+    }
+
+    html.dark .btn-light:hover {
+      background-color: rgba(255, 255, 255, 0.14) !important;
     }
   </style>
 </head>
 
-<body class="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-  <nav class="sticky top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-zinc-950/70">
+<body class="min-h-screen bg-zinc-50 text-zinc-900">
+  <nav class="sticky top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur">
     <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="h-10 w-10 rounded-xl bg-brand-500/15 ring-1 ring-brand-500/25 grid place-items-center">
-          <span class="text-brand-700 dark:text-brand-200 font-bold">IR</span>
+          <span class="text-brand-700 font-bold">IR</span>
         </div>
 
         <div class="leading-tight">
           <p class="font-semibold">Itumeleng Maake Ramoshaba</p>
-          <p class="text-xs text-zinc-600 dark:text-zinc-300">
+          <p class="text-xs text-zinc-600 muted">
             Software Developer Intern @ Metamorph • Data Analyst • Full-Stack Developer • Cloud & Cybersecurity
           </p>
         </div>
@@ -74,18 +126,18 @@
 
       <div class="flex items-center gap-4">
         <div class="hidden md:flex gap-5 text-sm">
-          <a href="#profile" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Profile</a>
-          <a href="#experience" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Experience</a>
-          <a href="#projects" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Projects</a>
-          <a href="#education" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Education</a>
-          <a href="#skills" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Skills</a>
-          <a href="#certificates" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Certificates</a>
-          <a href="#contact" class="text-zinc-600 hover:text-brand-700 dark:text-zinc-300 dark:hover:text-brand-200">Contact</a>
+          <a href="#profile" class="text-zinc-600 muted hover:text-brand-700">Profile</a>
+          <a href="#experience" class="text-zinc-600 muted hover:text-brand-700">Experience</a>
+          <a href="#projects" class="text-zinc-600 muted hover:text-brand-700">Projects</a>
+          <a href="#education" class="text-zinc-600 muted hover:text-brand-700">Education</a>
+          <a href="#skills" class="text-zinc-600 muted hover:text-brand-700">Skills</a>
+          <a href="#certificates" class="text-zinc-600 muted hover:text-brand-700">Certificates</a>
+          <a href="#contact" class="text-zinc-600 muted hover:text-brand-700">Contact</a>
         </div>
 
         <button
           id="themeToggle"
-          class="inline-flex items-center rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-zinc-100 dark:hover:bg-white/10"
+          class="btn-light inline-flex items-center rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-black/10"
         >
           <span id="themeIcon" class="mr-2">🌙</span>
           <span id="themeLabel">Dark</span>
@@ -105,13 +157,13 @@
       </div>
 
       <div class="md:col-span-2">
-        <p class="inline-flex items-center rounded-full border border-brand-500/25 bg-brand-500/10 px-4 py-2 text-sm text-brand-800 dark:text-brand-200">
+        <p class="inline-flex items-center rounded-full border border-brand-500/25 bg-brand-500/10 px-4 py-2 text-sm text-brand-800">
           Gauteng, South Africa • Open to opportunities
         </p>
 
         <h1 class="mt-5 text-4xl font-bold tracking-tight">Portfolio</h1>
 
-        <p class="mt-4 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+        <p class="mt-4 leading-relaxed text-zinc-700 muted">
           Detail-oriented BSc Computer Science & Statistics graduand with hands-on experience in full-stack software
           development, data analysis, and cloud-enabled solution design. Skilled in Python, Java, SQL, JavaScript,
           React, Node.js, Express, .NET, Azure, GCP, and Power BI. Currently building production-style web applications
@@ -121,15 +173,15 @@
         </p>
 
         <div class="mt-6 flex flex-wrap gap-2 text-sm">
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">Python</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">SQL</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">R</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">Java</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">C#</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">C++</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">C</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">MATLAB</span>
-          <span class="rounded-full border border-black/10 bg-black/5 px-3 py-1 dark:border-white/10 dark:bg-white/5">SAS</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">Python</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">SQL</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">R</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">Java</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">C#</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">C++</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">C</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">MATLAB</span>
+          <span class="chip rounded-full border border-black/10 bg-black/5 px-3 py-1">SAS</span>
         </div>
 
         <div class="mt-7">
@@ -137,7 +189,7 @@
             href="https://github.com/itumeleng-ramoshaba14"
             target="_blank"
             rel="noreferrer"
-            class="inline-flex items-center rounded-full border border-black/10 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 dark:border-white/10 dark:bg-white/10 dark:text-zinc-100 dark:hover:bg-white/15"
+            class="btn-light inline-flex items-center rounded-full border border-black/10 bg-white px-5 py-2 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
           >
             View my GitHub Profile →
           </a>
@@ -146,16 +198,16 @@
     </div>
   </header>
 
-  <section id="experience" class="border-t border-black/5 dark:border-white/10">
+  <section id="experience" class="border-t border-black/5">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <h2 class="text-2xl font-bold">Experience</h2>
 
-      <article class="mt-6 rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <h3 class="text-lg font-semibold text-brand-800 dark:text-brand-200">Software Developer Intern</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">Metamorph • 2026 – Present</p>
+      <article class="card mt-6 rounded-2xl border border-black/10 bg-white p-6">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h3 class="text-lg font-semibold text-brand-800">Software Developer Intern</h3>
+          <p class="text-sm text-zinc-600 muted">Metamorph • 2026 – Present</p>
         </div>
-        <ul class="mt-4 list-disc pl-5 text-zinc-700 dark:text-zinc-300 space-y-2">
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-zinc-700 muted">
           <li>Contribute to the development and refinement of full-stack web applications across backend and frontend layers.</li>
           <li>Work with REST APIs, business logic, authentication, database integration, and user-facing workflows.</li>
           <li>Translate business requirements into practical technical solutions and collaborate on iterative feature improvements.</li>
@@ -163,12 +215,12 @@
         </ul>
       </article>
 
-      <article class="mt-6 rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <h3 class="text-lg font-semibold text-brand-800 dark:text-brand-200">Student Assistant</h3>
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">North-West University, Potchefstroom • 2024 – 2025</p>
+      <article class="card mt-6 rounded-2xl border border-black/10 bg-white p-6">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h3 class="text-lg font-semibold text-brand-800">Student Assistant</h3>
+          <p class="text-sm text-zinc-600 muted">North-West University, Potchefstroom • 2024 – 2025</p>
         </div>
-        <ul class="mt-4 list-disc pl-5 text-zinc-700 dark:text-zinc-300 space-y-2">
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-zinc-700 muted">
           <li>Assisted second-year students with Object-Oriented Programming (Java) and Discrete Mathematics.</li>
           <li>Supported invigilation and marking of assessments, reinforcing accuracy, organisation, and communication skills.</li>
         </ul>
@@ -176,173 +228,110 @@
     </div>
   </section>
 
-  <section id="projects" class="border-t border-black/5 dark:border-white/10">
+  <section id="projects" class="border-t border-black/5">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <h2 class="text-2xl font-bold">Projects</h2>
 
       <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Food Delivery Platform</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+        <article class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Food Delivery Platform</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">
             Designed and developed an end-to-end full-stack food delivery platform with distinct customer, restaurant,
             and driver workflows. Implemented backend services and APIs for user management, order processing, delivery
             tracking, authentication, and operational state transitions.
           </p>
-          <p class="mt-3 text-sm text-zinc-700 dark:text-zinc-300">
+          <p class="mt-3 text-sm text-zinc-700 muted">
             Built role-based frontend interfaces integrated with backend services to support checkout, restaurant order
             handling, driver dispatch, and delivery status updates. Used OpenClaw and Claude Code as AI pair-programming
             assistants for scaffolding, feature implementation, debugging, refactoring, and technical architecture.
           </p>
-          <a
-            class="mt-4 inline-flex text-sm font-semibold text-brand-700 hover:text-brand-600 dark:text-brand-200 dark:hover:text-brand-100"
-            href="https://github.com/itumeleng-ramoshaba14"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on GitHub →
-          </a>
         </article>
 
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Golf360</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+        <article class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Golf360</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">
             Contributed to the development of Golf360 as a full-stack software solution focused on delivering a structured,
             user-friendly digital experience. Worked on application setup, feature implementation, and refinement of
             frontend-backend integration in a production-style workflow.
           </p>
-          <p class="mt-3 text-sm text-zinc-700 dark:text-zinc-300">
+          <p class="mt-3 text-sm text-zinc-700 muted">
             Used Claude Code to assist with code generation, debugging, iterative refinement, and project structuring,
             then validated, modified, and integrated the outputs into the final implementation.
           </p>
-          <a
-            class="mt-4 inline-flex text-sm font-semibold text-brand-700 hover:text-brand-600 dark:text-brand-200 dark:hover:text-brand-100"
-            href="https://github.com/itumeleng-ramoshaba14"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on GitHub →
-          </a>
         </article>
 
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Warehouse Logistics Management System</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+        <article class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Warehouse Logistics Management System</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">
             Designed and implemented an SQL-based inventory and warehouse management system to improve logistics efficiency
             through optimized database design.
           </p>
-          <a
-            class="mt-4 inline-flex text-sm font-semibold text-brand-700 hover:text-brand-600 dark:text-brand-200 dark:hover:text-brand-100"
-            href="https://github.com/itumeleng-ramoshaba14"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on GitHub →
-          </a>
-        </article>
-
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Lead Time & Warehouse Orders Analysis</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
-            Developed Python models to analyse lead time drivers including supplier distance and order size, cleaned and
-            merged large Excel datasets, performed statistical analysis, and generated insights to support supply chain
-            optimisation.
-          </p>
-          <a
-            class="mt-4 inline-flex text-sm font-semibold text-brand-700 hover:text-brand-600 dark:text-brand-200 dark:hover:text-brand-100"
-            href="https://github.com/itumeleng-ramoshaba14"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on GitHub →
-          </a>
-        </article>
-
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">NoSQL-Based Business Intelligence System</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
-            Designed a scalable BI system using MongoDB aligned to a custom financial year. Implemented Python-based ETL
-            pipelines and real-time data streaming, and built Power BI dashboards to visualize sales trends and
-            performance metrics.
-          </p>
-          <a
-            class="mt-4 inline-flex text-sm font-semibold text-brand-700 hover:text-brand-600 dark:text-brand-200 dark:hover:text-brand-100"
-            href="https://github.com/itumeleng-ramoshaba14"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View on GitHub →
-          </a>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="education" class="border-t border-black/5 dark:border-white/10">
+  <section id="education" class="border-t border-black/5">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <h2 class="text-2xl font-bold">Education</h2>
 
       <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Bachelor of Science in Computer Science and Statistics</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">North-West University, Potchefstroom • 2023 – 2025</p>
-          <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Completed: November 2025</p>
+        <article class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Bachelor of Science in Computer Science and Statistics</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">North-West University, Potchefstroom • 2023 – 2025</p>
+          <p class="mt-2 text-sm text-zinc-600 muted-2">Completed: November 2025</p>
         </article>
 
-        <article class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">National Senior Certificate (Matric)</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Rusplaas Christian Model School, Limpopo • 2021</p>
+        <article class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">National Senior Certificate (Matric)</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">Rusplaas Christian Model School, Limpopo • 2021</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="border-t border-black/5 dark:border-white/10">
+  <section id="skills" class="border-t border-black/5">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <h2 class="text-2xl font-bold">Skills</h2>
 
       <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Programming Languages</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Python, SQL, R, Java, C#, C++, C, MATLAB, SAS</p>
+        <div class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Programming Languages</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">Python, SQL, R, Java, C#, C++, C, MATLAB, SAS</p>
         </div>
 
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Web and Software Development</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">.NET Framework, HTML, CSS, JavaScript, TypeScript, React, Next.js, Node.js, Express, Spring Boot, Hibernate</p>
+        <div class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Web and Software Development</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">.NET Framework, HTML, CSS, JavaScript, TypeScript, React, Next.js, Node.js, Express, Spring Boot, Hibernate</p>
         </div>
 
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Data Analysis and Business Intelligence</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Power BI, Power Query, Advanced Excel, Data Engineering, Statistical Modelling, Regression, Hypothesis Testing</p>
+        <div class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Data Analysis and Business Intelligence</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">Power BI, Power Query, Advanced Excel, Data Engineering, Statistical Modelling, Regression, Hypothesis Testing</p>
         </div>
 
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Machine Learning and AI</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Machine Learning Fundamentals, Generative AI, Natural Language Processing (NLP), K-Means Clustering, Anomaly Detection, AI-assisted development workflows</p>
+        <div class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Machine Learning and AI</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">Machine Learning Fundamentals, Generative AI, Natural Language Processing (NLP), K-Means Clustering, Anomaly Detection, AI-assisted development workflows</p>
         </div>
 
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Cloud Computing and Networking</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Microsoft Azure AI Fundamentals, Google Cloud Platform (GCP), Cloud Computing, Azure AI Studio, Computer Networking, Network Administration</p>
+        <div class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Cloud Computing and Networking</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">Microsoft Azure AI Fundamentals, Google Cloud Platform (GCP), Cloud Computing, Azure AI Studio, Computer Networking, Network Administration</p>
         </div>
 
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Cybersecurity</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Cybersecurity Fundamentals, Cyber Threat Intelligence, Cloud Security</p>
-        </div>
-
-        <div class="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-zinc-900/40 md:col-span-2">
-          <h3 class="font-semibold text-brand-800 dark:text-brand-200">Tools and Platforms</h3>
-          <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Git, GitHub, Linux, MongoDB, PostgreSQL, VS Code, Claude Code, OpenClaw, Docker</p>
+        <div class="card rounded-2xl border border-black/10 bg-white p-6">
+          <h3 class="font-semibold text-brand-800">Cybersecurity</h3>
+          <p class="mt-2 text-sm text-zinc-700 muted">Cybersecurity Fundamentals, Cyber Threat Intelligence, Cloud Security</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="certificates" class="border-t border-black/5 dark:border-white/10">
+  <section id="certificates" class="border-t border-black/5">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <h2 class="text-2xl font-bold">Certificates</h2>
-      <p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300">
+      <p class="mt-2 text-sm text-zinc-700 muted">
         Click “View” to open, or “Download” to download the PDF.
       </p>
 
@@ -350,46 +339,100 @@
     </div>
   </section>
 
-  <section id="contact" class="border-t border-black/5 dark:border-white/10">
+  <section id="contact" class="border-t border-black/5">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <h2 class="text-2xl font-bold">Contact</h2>
 
       <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <a
-          class="rounded-2xl border border-black/10 bg-white p-6 hover:bg-zinc-50 transition dark:border-white/10 dark:bg-zinc-900/40 dark:hover:bg-zinc-900/60"
+          class="link-card rounded-2xl border border-black/10 bg-white p-6 transition hover:bg-zinc-50"
           href="mailto:itumeleng.maake.ramoshaba@gmail.com"
         >
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">Email</p>
-          <p class="mt-1 font-semibold text-brand-800 dark:text-brand-200">itumeleng.maake.ramoshaba@gmail.com</p>
+          <p class="text-sm text-zinc-600 muted">Email</p>
+          <p class="mt-1 font-semibold text-brand-800">itumeleng.maake.ramoshaba@gmail.com</p>
         </a>
 
         <a
-          class="rounded-2xl border border-black/10 bg-white p-6 hover:bg-zinc-50 transition dark:border-white/10 dark:bg-zinc-900/40 dark:hover:bg-zinc-900/60"
+          class="link-card rounded-2xl border border-black/10 bg-white p-6 transition hover:bg-zinc-50"
           href="https://www.linkedin.com/in/itumeleng-ramoshaba-9a07b32a2/"
           target="_blank"
           rel="noreferrer"
         >
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">LinkedIn</p>
-          <p class="mt-1 font-semibold text-brand-800 dark:text-brand-200">Open Profile</p>
+          <p class="text-sm text-zinc-600 muted">LinkedIn</p>
+          <p class="mt-1 font-semibold text-brand-800">Open Profile</p>
         </a>
 
         <a
-          class="rounded-2xl border border-black/10 bg-white p-6 hover:bg-zinc-50 transition dark:border-white/10 dark:bg-zinc-900/40 dark:hover:bg-zinc-900/60"
+          class="link-card rounded-2xl border border-black/10 bg-white p-6 transition hover:bg-zinc-50"
           href="https://github.com/itumeleng-ramoshaba14"
           target="_blank"
           rel="noreferrer"
         >
-          <p class="text-sm text-zinc-600 dark:text-zinc-300">GitHub</p>
-          <p class="mt-1 font-semibold text-brand-800 dark:text-brand-200">Open Profile</p>
+          <p class="text-sm text-zinc-600 muted">GitHub</p>
+          <p class="mt-1 font-semibold text-brand-800">Open Profile</p>
         </a>
       </div>
 
-      <footer class="mt-10 text-sm text-zinc-500 dark:text-zinc-400">
+      <footer class="mt-10 text-sm text-zinc-500 muted-2">
         © <span id="year"></span> Itumeleng Maake Ramoshaba
       </footer>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeLabel = document.getElementById("themeLabel");
+    const certGrid = document.getElementById("certGrid");
+    const year = document.getElementById("year");
+
+    function updateThemeUI() {
+      const isDark = document.documentElement.classList.contains("dark");
+      themeIcon.textContent = isDark ? "☀️" : "🌙";
+      themeLabel.textContent = isDark ? "Light" : "Dark";
+    }
+
+    updateThemeUI();
+
+    themeToggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      updateThemeUI();
+    });
+
+    year.textContent = new Date().getFullYear();
+
+    async function loadCertificates() {
+      try {
+        const res = await fetch("/api/certificates");
+        const data = await res.json();
+
+        if (data.ok && Array.isArray(data.certificates)) {
+          certGrid.innerHTML = data.certificates.map((c) => {
+            const niceTitle = c.file.replace(/\.pdf$/i, "").replaceAll("_", " ");
+            return `
+              <article class="card rounded-2xl border border-black/10 bg-white p-6">
+                <h3 class="font-semibold text-brand-800">${niceTitle}</h3>
+                <p class="mt-2 text-sm text-zinc-700 muted">PDF Certificate</p>
+                <div class="mt-4 flex gap-4">
+                  <a class="text-sm font-semibold text-brand-700 hover:text-brand-600"
+                     href="${c.viewUrl}" target="_blank" rel="noreferrer">View</a>
+                  <a class="text-sm font-semibold text-brand-700 hover:text-brand-600"
+                     href="${c.downloadUrl}">Download</a>
+                </div>
+              </article>
+            `;
+          }).join("");
+        } else {
+          certGrid.innerHTML = `<p class="text-sm text-zinc-700 muted">Could not load certificates.</p>`;
+        }
+      } catch (err) {
+        certGrid.innerHTML = `<p class="text-sm text-zinc-700 muted">Could not load certificates.</p>`;
+      }
+    }
+
+    loadCertificates();
+  </script>
 </body>
 </html>
